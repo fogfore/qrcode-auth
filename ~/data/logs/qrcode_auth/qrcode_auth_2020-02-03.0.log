@@ -1,0 +1,577 @@
+2020-02-03 19:22:19,425 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:55] Starting QrcodeAuthApplication on 0ZXRKM912YMV836 with PID 7440 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\qrcode-auth)
+2020-02-03 19:22:19,430 INFO [restartedMain] QrcodeAuthApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-03 19:22:19,577 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 19:22:19,582 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 19:22:22,006 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 19:22:22,037 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-03 19:22:22,227 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 58ms. Found 0 Redis repository interfaces.
+2020-02-03 19:22:23,169 INFO [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 19:22:24,478 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8080 (http)
+2020-02-03 19:22:24,523 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-03 19:22:24,524 INFO [restartedMain] StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2020-02-03 19:22:24,524 INFO [restartedMain] StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-03 19:22:24,766 INFO [restartedMain] [/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2020-02-03 19:22:24,767 INFO [restartedMain] ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 5185 ms
+2020-02-03 19:22:24,967 INFO [restartedMain] DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java:56] Init DruidDataSource
+2020-02-03 19:22:25,649 INFO [restartedMain] DruidDataSource [DruidDataSource.java:1010] {dataSource-1} inited
+2020-02-03 19:22:28,527 INFO [restartedMain] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 19:22:29,210 INFO [restartedMain] OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2020-02-03 19:22:29,247 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-03 19:22:29,291 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-03 19:22:29,314 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:61] Started QrcodeAuthApplication in 12.159 seconds (JVM running for 20.836)
+2020-02-03 19:24:30,649 INFO [http-nio-8080-exec-1] [/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 19:24:30,651 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2020-02-03 19:24:30,677 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 25 ms
+2020-02-03 19:24:46,406 ERROR [http-nio-8080-exec-1] [dispatcherServlet] [DirectJDKLog.java:175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+### The error may exist in com/fogfore/qrcodeauth/mapper/UserMapper.java (best guess)
+### The error may involve com.fogfore.qrcodeauth.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO user    VALUES
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1] with root cause
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:497)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doUpdate(MybatisSimpleExecutor.java:54)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.update(MybatisCachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy69.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:271)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:60)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:96)
+	at com.sun.proxy.$Proxy73.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.save(ServiceImpl.java:114)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$76535273.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.fogfore.qrcodeauth.service.UserService$$EnhancerBySpringCGLIB$$79a3f10.save(<generated>)
+	at com.fogfore.qrcodeauth.controller.UserController.login(UserController.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-03 19:32:38,899 INFO [SpringContextShutdownHook] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 19:32:39,143 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2003] {dataSource-1} closing ...
+2020-02-03 19:32:39,162 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2075] {dataSource-1} closed
+2020-02-03 19:33:56,944 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:55] Starting QrcodeAuthApplication on 0ZXRKM912YMV836 with PID 6672 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\qrcode-auth)
+2020-02-03 19:33:56,956 INFO [restartedMain] QrcodeAuthApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-03 19:33:57,109 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 19:33:57,110 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 19:33:58,201 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 19:33:58,204 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-03 19:33:58,244 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 22ms. Found 0 Redis repository interfaces.
+2020-02-03 19:33:58,641 INFO [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 19:33:59,105 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8080 (http)
+2020-02-03 19:33:59,116 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-03 19:33:59,117 INFO [restartedMain] StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2020-02-03 19:33:59,118 INFO [restartedMain] StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-03 19:33:59,213 INFO [restartedMain] [/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2020-02-03 19:33:59,214 INFO [restartedMain] ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 2104 ms
+2020-02-03 19:33:59,318 INFO [restartedMain] DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java:56] Init DruidDataSource
+2020-02-03 19:33:59,467 INFO [restartedMain] DruidDataSource [DruidDataSource.java:1010] {dataSource-1} inited
+2020-02-03 19:34:00,514 INFO [restartedMain] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 19:34:00,851 INFO [restartedMain] OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2020-02-03 19:34:00,886 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-03 19:34:00,922 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-03 19:34:00,932 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:61] Started QrcodeAuthApplication in 5.343 seconds (JVM running for 7.448)
+2020-02-03 19:34:10,685 INFO [http-nio-8080-exec-1] [/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 19:34:10,686 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2020-02-03 19:34:10,695 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 9 ms
+2020-02-03 19:34:17,606 ERROR [http-nio-8080-exec-1] [dispatcherServlet] [DirectJDKLog.java:175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+### The error may exist in com/fogfore/qrcodeauth/mapper/UserMapper.java (best guess)
+### The error may involve com.fogfore.qrcodeauth.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO user    VALUES
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1] with root cause
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:497)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doUpdate(MybatisSimpleExecutor.java:54)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.update(MybatisCachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy70.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:271)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:60)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:96)
+	at com.sun.proxy.$Proxy74.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.save(ServiceImpl.java:114)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$76535273.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.fogfore.qrcodeauth.service.UserService$$EnhancerBySpringCGLIB$$80e2c10.save(<generated>)
+	at com.fogfore.qrcodeauth.controller.UserController.login(UserController.java:45)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-03 19:34:18,120 INFO [SpringContextShutdownHook] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 19:34:18,149 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2003] {dataSource-1} closing ...
+2020-02-03 19:34:18,160 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2075] {dataSource-1} closed
+2020-02-03 19:42:26,520 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:55] Starting QrcodeAuthApplication on 0ZXRKM912YMV836 with PID 12244 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\qrcode-auth)
+2020-02-03 19:42:26,525 INFO [restartedMain] QrcodeAuthApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-03 19:42:26,683 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 19:42:26,683 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 19:42:27,721 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 19:42:27,724 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-03 19:42:27,774 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 24ms. Found 0 Redis repository interfaces.
+2020-02-03 19:42:28,235 INFO [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 19:42:28,756 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8080 (http)
+2020-02-03 19:42:28,768 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-03 19:42:28,769 INFO [restartedMain] StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2020-02-03 19:42:28,770 INFO [restartedMain] StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-03 19:42:28,886 INFO [restartedMain] [/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2020-02-03 19:42:28,887 INFO [restartedMain] ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 2203 ms
+2020-02-03 19:42:28,994 INFO [restartedMain] DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java:56] Init DruidDataSource
+2020-02-03 19:42:29,152 INFO [restartedMain] DruidDataSource [DruidDataSource.java:1010] {dataSource-1} inited
+2020-02-03 19:42:30,272 INFO [restartedMain] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 19:42:30,589 INFO [restartedMain] OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2020-02-03 19:42:30,618 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-03 19:42:30,648 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-03 19:42:30,653 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:61] Started QrcodeAuthApplication in 5.452 seconds (JVM running for 7.67)
+2020-02-03 19:45:44,513 INFO [http-nio-8080-exec-1] [/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 19:45:44,514 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2020-02-03 19:45:44,521 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 7 ms
+2020-02-03 19:46:29,068 INFO [SpringContextShutdownHook] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 19:46:29,201 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2003] {dataSource-1} closing ...
+2020-02-03 19:46:29,222 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2075] {dataSource-1} closed
+2020-02-03 20:01:07,647 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:55] Starting QrcodeAuthApplication on 0ZXRKM912YMV836 with PID 13736 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\qrcode-auth)
+2020-02-03 20:01:07,666 INFO [restartedMain] QrcodeAuthApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-03 20:01:07,788 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 20:01:07,789 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 20:01:08,781 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 20:01:08,784 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-03 20:01:08,820 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2020-02-03 20:01:09,219 INFO [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 20:01:09,673 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8080 (http)
+2020-02-03 20:01:09,684 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-03 20:01:09,685 INFO [restartedMain] StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2020-02-03 20:01:09,686 INFO [restartedMain] StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-03 20:01:09,780 INFO [restartedMain] [/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2020-02-03 20:01:09,781 INFO [restartedMain] ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 1992 ms
+2020-02-03 20:01:09,887 INFO [restartedMain] DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java:56] Init DruidDataSource
+2020-02-03 20:01:10,028 INFO [restartedMain] DruidDataSource [DruidDataSource.java:1010] {dataSource-1} inited
+2020-02-03 20:01:11,085 INFO [restartedMain] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 20:01:11,381 INFO [restartedMain] OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2020-02-03 20:01:11,408 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-03 20:01:11,465 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-03 20:01:11,471 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:61] Started QrcodeAuthApplication in 4.997 seconds (JVM running for 7.029)
+2020-02-03 20:01:41,868 INFO [http-nio-8080-exec-2] [/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 20:01:41,870 INFO [http-nio-8080-exec-2] DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2020-02-03 20:01:41,884 INFO [http-nio-8080-exec-2] DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 12 ms
+2020-02-03 20:02:24,975 ERROR [http-nio-8080-exec-2] [dispatcherServlet] [DirectJDKLog.java:175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'openid' at row 1
+### The error may exist in com/fogfore/qrcodeauth/mapper/UserMapper.java (best guess)
+### The error may involve com.fogfore.qrcodeauth.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO user  ( openid, nick_name, session_key, city, province, country, avatar_url, gender )  VALUES  ( ?, ?, ?, ?, ?, ?, ?, ? )
+### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'openid' at row 1
+; Data truncation: Data too long for column 'openid' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'openid' at row 1] with root cause
+com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'openid' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:497)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doUpdate(MybatisSimpleExecutor.java:54)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.update(MybatisCachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy70.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:271)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:60)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:96)
+	at com.sun.proxy.$Proxy74.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.save(ServiceImpl.java:114)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$76535273.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.fogfore.qrcodeauth.service.UserService$$EnhancerBySpringCGLIB$$a2a4cb8b.save(<generated>)
+	at com.fogfore.qrcodeauth.controller.UserController.login(UserController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-03 20:03:15,459 ERROR [http-nio-8080-exec-1] [dispatcherServlet] [DirectJDKLog.java:175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLException: Field 'id' doesn't have a default value
+### The error may exist in com/fogfore/qrcodeauth/mapper/UserMapper.java (best guess)
+### The error may involve com.fogfore.qrcodeauth.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO user  ( openid, nick_name, session_key, city, province, country, avatar_url, gender )  VALUES  ( ?, ?, ?, ?, ?, ?, ?, ? )
+### Cause: java.sql.SQLException: Field 'id' doesn't have a default value
+; Field 'id' doesn't have a default value; nested exception is java.sql.SQLException: Field 'id' doesn't have a default value] with root cause
+java.sql.SQLException: Field 'id' doesn't have a default value
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:497)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doUpdate(MybatisSimpleExecutor.java:54)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.update(MybatisCachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy70.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:271)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:60)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:96)
+	at com.sun.proxy.$Proxy74.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.save(ServiceImpl.java:114)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$76535273.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.fogfore.qrcodeauth.service.UserService$$EnhancerBySpringCGLIB$$a2a4cb8b.save(<generated>)
+	at com.fogfore.qrcodeauth.controller.UserController.login(UserController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-03 20:03:41,847 ERROR [http-nio-8080-exec-3] [dispatcherServlet] [DirectJDKLog.java:175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLException: Field 'last_visit_time' doesn't have a default value
+### The error may exist in com/fogfore/qrcodeauth/mapper/UserMapper.java (best guess)
+### The error may involve com.fogfore.qrcodeauth.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO user  ( openid, nick_name, session_key, city, province, country, avatar_url, gender )  VALUES  ( ?, ?, ?, ?, ?, ?, ?, ? )
+### Cause: java.sql.SQLException: Field 'last_visit_time' doesn't have a default value
+; Field 'last_visit_time' doesn't have a default value; nested exception is java.sql.SQLException: Field 'last_visit_time' doesn't have a default value] with root cause
+java.sql.SQLException: Field 'last_visit_time' doesn't have a default value
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:497)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doUpdate(MybatisSimpleExecutor.java:54)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.update(MybatisCachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy70.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:271)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:60)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:96)
+	at com.sun.proxy.$Proxy74.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.save(ServiceImpl.java:114)
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$76535273.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.fogfore.qrcodeauth.service.UserService$$EnhancerBySpringCGLIB$$a2a4cb8b.save(<generated>)
+	at com.fogfore.qrcodeauth.controller.UserController.login(UserController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-03 20:06:15,414 INFO [http-nio-8080-exec-5] EpollProvider [EpollProvider.java:68] Starting without optional epoll library
+2020-02-03 20:06:15,429 INFO [http-nio-8080-exec-5] KqueueProvider [KqueueProvider.java:70] Starting without optional kqueue library
+2020-02-03 20:20:32,241 INFO [SpringContextShutdownHook] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 20:20:32,492 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2003] {dataSource-1} closing ...
+2020-02-03 20:20:32,517 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2075] {dataSource-1} closed
+2020-02-03 20:20:43,244 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:55] Starting QrcodeAuthApplication on 0ZXRKM912YMV836 with PID 17236 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\qrcode-auth)
+2020-02-03 20:20:43,248 INFO [restartedMain] QrcodeAuthApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-03 20:20:43,486 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 20:20:43,486 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 20:20:44,908 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-03 20:20:44,911 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-03 20:20:44,957 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 24ms. Found 0 Redis repository interfaces.
+2020-02-03 20:20:45,415 INFO [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-03 20:20:45,837 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8080 (http)
+2020-02-03 20:20:45,848 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-03 20:20:45,849 INFO [restartedMain] StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2020-02-03 20:20:45,850 INFO [restartedMain] StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-03 20:20:45,991 INFO [restartedMain] [/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2020-02-03 20:20:45,992 INFO [restartedMain] ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 2492 ms
+2020-02-03 20:20:46,377 INFO [restartedMain] DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java:56] Init DruidDataSource
+2020-02-03 20:20:46,505 INFO [restartedMain] DruidDataSource [DruidDataSource.java:1010] {dataSource-1} inited
+2020-02-03 20:20:47,292 INFO [restartedMain] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 20:20:47,592 INFO [restartedMain] OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2020-02-03 20:20:47,620 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-03 20:20:47,649 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-03 20:20:47,654 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:61] Started QrcodeAuthApplication in 5.385 seconds (JVM running for 7.665)
+2020-02-03 20:25:18,327 INFO [http-nio-8080-exec-1] [/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 20:25:18,328 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2020-02-03 20:25:18,338 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 9 ms
+2020-02-03 20:25:30,798 INFO [http-nio-8080-exec-1] EpollProvider [EpollProvider.java:68] Starting without optional epoll library
+2020-02-03 20:25:30,800 INFO [http-nio-8080-exec-1] KqueueProvider [KqueueProvider.java:70] Starting without optional kqueue library
+2020-02-03 20:35:21,311 INFO [SpringContextShutdownHook] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 20:35:21,320 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2003] {dataSource-1} closing ...
+2020-02-03 20:35:21,331 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2075] {dataSource-1} closed

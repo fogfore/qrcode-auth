@@ -1,0 +1,55 @@
+2020-02-04 16:33:21,878 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:55] Starting QrcodeAuthApplication on 0ZXRKM912YMV836 with PID 14948 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\qrcode-auth)
+2020-02-04 16:33:21,886 INFO [restartedMain] QrcodeAuthApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-04 16:33:22,052 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-04 16:33:22,056 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-04 16:33:25,169 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 16:33:25,189 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-04 16:33:25,442 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 109ms. Found 0 Redis repository interfaces.
+2020-02-04 16:33:26,713 INFO [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 16:33:28,442 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8080 (http)
+2020-02-04 16:33:28,477 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-04 16:33:28,478 INFO [restartedMain] StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2020-02-04 16:33:28,479 INFO [restartedMain] StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-04 16:33:28,750 INFO [restartedMain] [/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2020-02-04 16:33:28,750 INFO [restartedMain] ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 6694 ms
+2020-02-04 16:33:30,731 INFO [restartedMain] DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java:56] Init DruidDataSource
+2020-02-04 16:33:31,589 INFO [restartedMain] DruidDataSource [DruidDataSource.java:1010] {dataSource-1} inited
+2020-02-04 16:33:33,258 INFO [restartedMain] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 16:33:34,012 INFO [restartedMain] OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2020-02-04 16:33:34,040 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-04 16:33:34,088 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-04 16:33:34,122 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:61] Started QrcodeAuthApplication in 14.546 seconds (JVM running for 23.206)
+2020-02-04 16:35:24,599 INFO [http-nio-8080-exec-1] [/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-04 16:35:24,600 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2020-02-04 16:35:24,634 INFO [http-nio-8080-exec-1] DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 31 ms
+2020-02-04 16:35:25,318 INFO [http-nio-8080-exec-1] EpollProvider [EpollProvider.java:68] Starting without optional epoll library
+2020-02-04 16:35:25,321 INFO [http-nio-8080-exec-1] KqueueProvider [KqueueProvider.java:70] Starting without optional kqueue library
+2020-02-04 16:49:12,690 INFO [SpringContextShutdownHook] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-04 16:49:12,703 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2003] {dataSource-1} closing ...
+2020-02-04 16:49:12,705 INFO [SpringContextShutdownHook] DruidDataSource [DruidDataSource.java:2075] {dataSource-1} closed
+2020-02-04 16:49:25,070 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:55] Starting QrcodeAuthApplication on 0ZXRKM912YMV836 with PID 3392 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\qrcode-auth)
+2020-02-04 16:49:25,076 INFO [restartedMain] QrcodeAuthApplication [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-04 16:49:25,202 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-04 16:49:25,203 INFO [restartedMain] DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-04 16:49:26,156 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-04 16:49:26,159 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-04 16:49:26,199 INFO [restartedMain] RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2020-02-04 16:49:26,617 INFO [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java:330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-04 16:49:27,099 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:92] Tomcat initialized with port(s): 8080 (http)
+2020-02-04 16:49:27,112 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-04 16:49:27,113 INFO [restartedMain] StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2020-02-04 16:49:27,113 INFO [restartedMain] StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-04 16:49:27,217 INFO [restartedMain] [/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2020-02-04 16:49:27,218 INFO [restartedMain] ContextLoader [ServletWebServerApplicationContext.java:284] Root WebApplicationContext: initialization completed in 2014 ms
+2020-02-04 16:49:27,590 INFO [restartedMain] DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java:56] Init DruidDataSource
+2020-02-04 16:49:27,712 INFO [restartedMain] DruidDataSource [DruidDataSource.java:1010] {dataSource-1} inited
+2020-02-04 16:49:28,813 INFO [restartedMain] ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-04 16:49:29,186 INFO [restartedMain] OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2020-02-04 16:49:29,216 INFO [restartedMain] Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-04 16:49:29,249 INFO [restartedMain] TomcatWebServer [TomcatWebServer.java:204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-04 16:49:29,254 INFO [restartedMain] QrcodeAuthApplication [StartupInfoLogger.java:61] Started QrcodeAuthApplication in 5.417 seconds (JVM running for 7.904)
+2020-02-04 16:56:06,653 INFO [http-nio-8080-exec-2] [/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-04 16:56:06,654 INFO [http-nio-8080-exec-2] DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2020-02-04 16:56:06,662 INFO [http-nio-8080-exec-2] DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 8 ms
+2020-02-04 16:56:06,869 INFO [http-nio-8080-exec-2] EpollProvider [EpollProvider.java:68] Starting without optional epoll library
+2020-02-04 16:56:06,871 INFO [http-nio-8080-exec-2] KqueueProvider [KqueueProvider.java:70] Starting without optional kqueue library
