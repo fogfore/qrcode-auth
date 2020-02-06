@@ -3,7 +3,7 @@
     <property name="context_name" value="qrcode_auth"/>
     <!--<property name="module_name" value="xolo-mall-user"/>-->
     <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>~/data/logs/${context_name}/${context_name}.log</File>
+        <File>/tmp/data/logs/${context_name}/${context_name}.log</File>
         <encoder>
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
             <pattern>%date %level [%thread] %logger{0} [%file:%line] %msg%n</pattern>
