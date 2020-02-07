@@ -9,4 +9,8 @@ public class RedisUtils {
     public static String getIdentityKey(String identity) {
         return APP_PREFIX + "/user/identity/" + identity;
     }
+
+    public static String getVisitorsKey(String uid) {
+        return APP_PREFIX + "/user/visitor/" + uid;
+    }
 }

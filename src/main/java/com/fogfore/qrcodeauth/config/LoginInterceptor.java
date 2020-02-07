@@ -9,6 +9,7 @@ import com.fogfore.qrcodeauth.utils.RedisUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
+@Component
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private RedisService redisService;
@@ -34,7 +36,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 String skey = request.getHeader("skey");
                 String value = redisService.get(RedisUtils.getSessionKey(skey));
                 if (StringUtils.isEmpty(value)) {
-                    RespBody.accessDeniedError("请登录");
+                    RespBody.accessDeniedError("请登录").doResp(response);
                     return false;
                 }
                 userThreadLocal.set(JSON.parseObject(value, User.class));

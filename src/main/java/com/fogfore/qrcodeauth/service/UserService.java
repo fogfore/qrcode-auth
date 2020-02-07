@@ -12,4 +12,9 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         QueryWrapper<User> wrapper = new QueryWrapper<User>().eq("openid", openid);
         return baseMapper.selectOne(wrapper);
     }
+
+    public User selectByUid(String uid) {
+        QueryWrapper<User> wrapper = new QueryWrapper<User>().eq("uid", uid);
+        return baseMapper.selectOne(wrapper);
+    }
 }

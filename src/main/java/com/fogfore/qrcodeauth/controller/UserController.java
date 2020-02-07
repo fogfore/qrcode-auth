@@ -11,15 +11,13 @@ import com.fogfore.qrcodeauth.service.UserService;
 import com.fogfore.qrcodeauth.service.WeChatService;
 import com.fogfore.qrcodeauth.utils.CommonUtils;
 import com.fogfore.qrcodeauth.utils.RedisUtils;
+import com.fogfore.qrcodeauth.vo.UserVo;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,5 +65,31 @@ public class UserController {
         data.put("skey", skey);
         data.put("uid", uid);
         return RespBody.ok(data);
+    }
+
+    @LoginRequire
+    @GetMapping("/get/userinfo")
+    public RespBody getUserInfo(String uid) {
+        User user = userService.selectByUid(uid);
+        if (ObjectUtils.isEmpty(user)) {
+            return RespBody.argsError("该用户不存在");
+        }
+        UserVo userVo = new UserVo();
+        BeanUtils.copyProperties(user, userVo);
+        return RespBody.ok(userVo);
+    }
+
+    @LoginRequire
+    @GetMapping("/agree/visit")
+    public RespBody argeeVisit(String uid) {
+        User visitor = userService.selectByUid(uid);
+        if (ObjectUtils.isEmpty(visitor)) {
+            return RespBody.argsError("该用户不存在");
+        }
+        User user = userThreadLocal.get();
+
+        String key = RedisUtils.getVisitorsKey(user.getUid());
+        redisService.sAdd(key, uid);
+        return RespBody.ok("已为该用户设置访问权限");
     }
 }

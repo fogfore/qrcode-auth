@@ -13,6 +13,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +32,7 @@ public class QrcodeController {
     @Autowired
     private UserThreadLocal userThreadLocal;
 
-    @RequestMapping("/get/credential")
+    @GetMapping("/get/credential")
     public void getCredential(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = userThreadLocal.get();
 
