@@ -35,7 +35,7 @@ public class UserController {
     @Autowired
     private UserThreadLocal userThreadLocal;
 
-    @RequestMapping("/login")
+    @PostMapping("/login")
     @ResponseBody
     public RespBody login(@RequestBody JSONObject json) {
         String code = json.getString("code");
@@ -49,21 +49,20 @@ public class UserController {
 
         // 没有用户 创建用户
         User oldUser = userService.selectByOpenid(openid);
-        String uid = oldUser.getUid();
         if (ObjectUtils.isEmpty(oldUser)) {
             user.setOpenid(openid);
             user.setSessionKey(sessionKey);
-            uid = CommonUtils.getUUID();
-            user.setUid(uid);
+            user.setUid(CommonUtils.getUUID());
             userService.save(user);
+            oldUser = user;
         }
 
         String skey = CommonUtils.getUUID();
-        String value = JSON.toJSONString(user);
+        String value = JSON.toJSONString(oldUser);
         redisService.setEx(RedisUtils.getSessionKey(skey), value, 1, TimeUnit.DAYS);
         Map<String, Object> data = new HashMap<>();
         data.put("skey", skey);
-        data.put("uid", uid);
+        data.put("uid", oldUser.getUid());
         return RespBody.ok(data);
     }
 
