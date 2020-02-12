@@ -19,12 +19,14 @@ import java.util.Date;
 public class User {
     @TableId(type = IdType.AUTO)
     private Integer id;
-    @TableField("uid")
-    private String uid;
     @TableField("openid")
     private String openid;
     @TableField("nick_name")
     private String nickName;
+    @TableField("real_name")
+    private String realName;
+    @TableField("phone")
+    private String phone;
     @TableField("session_key")
     private String sessionKey;
     @TableField("city")
@@ -41,6 +43,4 @@ public class User {
     private Date createTime;
     @TableField("update_time")
     private Date updateTime;
-    @TableField("last_visit_time")
-    private Date lastVisitTime;
 }

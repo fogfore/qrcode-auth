@@ -6,21 +6,26 @@ import com.fogfore.qrcodeauth.annotation.LoginRequire;
 import com.fogfore.qrcodeauth.config.UserThreadLocal;
 import com.fogfore.qrcodeauth.entity.RespBody;
 import com.fogfore.qrcodeauth.entity.User;
+import com.fogfore.qrcodeauth.entity.UserAddress;
+import com.fogfore.qrcodeauth.entity.UserAddressAuth;
 import com.fogfore.qrcodeauth.service.RedisService;
+import com.fogfore.qrcodeauth.service.UserAddressService;
 import com.fogfore.qrcodeauth.service.UserService;
 import com.fogfore.qrcodeauth.service.WeChatService;
 import com.fogfore.qrcodeauth.utils.CommonUtils;
 import com.fogfore.qrcodeauth.utils.RedisUtils;
-import com.fogfore.qrcodeauth.vo.UserVo;
+import com.fogfore.qrcodeauth.vo.UserDetailVo;
+import com.fogfore.qrcodeauth.vo.UserInfoVo;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -34,12 +39,14 @@ public class UserController {
     private RedisService redisService;
     @Autowired
     private UserThreadLocal userThreadLocal;
+    @Autowired
+    private UserAddressService userAddressService;
 
     @PostMapping("/login")
     @ResponseBody
     public RespBody login(@RequestBody JSONObject json) {
         String code = json.getString("code");
-        User user = json.getObject("user", User.class);
+        User user = json.getObject("userInfo", User.class);
         if (ObjectUtils.isEmpty(user) || StringUtils.isEmpty(code)) {
             return RespBody.argsError("登录失败");
         }
@@ -52,43 +59,93 @@ public class UserController {
         if (ObjectUtils.isEmpty(oldUser)) {
             user.setOpenid(openid);
             user.setSessionKey(sessionKey);
-            user.setUid(CommonUtils.getUUID());
             userService.save(user);
             oldUser = user;
         }
 
         String skey = CommonUtils.getUUID();
         String value = JSON.toJSONString(oldUser);
-        redisService.setEx(RedisUtils.getSessionKey(skey), value, 1, TimeUnit.DAYS);
+        redisService.setEx(RedisUtils.getSessionKey(skey), value, 1, TimeUnit.HOURS);
         Map<String, Object> data = new HashMap<>();
         data.put("skey", skey);
-        data.put("uid", oldUser.getUid());
+        data.put("uid", oldUser.getId());
         return RespBody.ok(data);
     }
 
     @LoginRequire
-    @GetMapping("/get/userinfo")
-    public RespBody getUserInfo(String uid) {
-        User user = userService.selectByUid(uid);
-        if (ObjectUtils.isEmpty(user)) {
-            return RespBody.argsError("该用户不存在");
+    @GetMapping("/list/addrs")
+    public RespBody listAddrs() {
+        User user = userThreadLocal.get();
+        List<UserAddressAuth> addrs = userAddressService.listAddrs(user.getId());
+        return RespBody.ok(addrs);
+    }
+
+    @LoginRequire
+    @PostMapping("/auth/visit")
+    public RespBody authVisit(@RequestBody JSONObject json) {
+        String credential = json.getString("credential");
+        String addrId = json.getString("addrId");
+        if (StringUtils.isEmpty(credential) || StringUtils.isEmpty(addrId)) {
+            return RespBody.argsError("参数错误");
         }
-        UserVo userVo = new UserVo();
+
+        String aid = redisService.get(RedisUtils.getVisitorKey(credential));
+        if (Objects.equals(addrId, aid)) {
+            return RespBody.ok("同意访问");
+        } else {
+            return RespBody.argsError("该用户没有访问权限");
+        }
+    }
+
+    @LoginRequire
+    @GetMapping("/get/userinfo")
+    public RespBody getUserInfo() {
+        User user = userThreadLocal.get();
+        user = userService.getById(user.getId());
+        UserInfoVo userVo = new UserInfoVo();
         BeanUtils.copyProperties(user, userVo);
         return RespBody.ok(userVo);
     }
 
     @LoginRequire
-    @GetMapping("/agree/visit")
-    public RespBody argeeVisit(String uid) {
-        User visitor = userService.selectByUid(uid);
-        if (ObjectUtils.isEmpty(visitor)) {
-            return RespBody.argsError("该用户不存在");
+    @PostMapping("/update/userinfo")
+    public RespBody updateUserInfo(@RequestBody JSONObject json) {
+        Integer uid = userThreadLocal.get().getId();
+        UserInfoVo userVo = json.getObject("userInfo", UserInfoVo.class);
+        User user = new User();
+        BeanUtils.copyProperties(userVo, user);
+        user.setId(uid);
+        userService.update(user);
+        return RespBody.ok("更新用户信息成功");
+    }
+
+    @LoginRequire
+    @PostMapping("/fuzzy/query/user")
+    public RespBody fuzzyQuery(@RequestBody JSONObject json) {
+        String value = json.getString("value");
+        Integer addrId = json.getInteger("addrId");
+        if (StringUtils.isEmpty(value) || ObjectUtils.isEmpty(addrId)) {
+            return RespBody.argsError("参数错误");
+        }
+        List<UserDetailVo> userList = userService.fuzzyQuery(value, addrId);
+        return RespBody.ok(userList);
+    }
+
+    @LoginRequire
+    @PostMapping("/add/visitor")
+    public RespBody addVisitor(@RequestBody JSONObject json) {
+        Integer visitorId = json.getInteger("visitorId");
+        Integer addrId = json.getInteger("addrId");
+        if (ObjectUtils.isEmpty(visitorId) || ObjectUtils.isEmpty(addrId)) {
+            return RespBody.argsError("参数错误");
         }
         User user = userThreadLocal.get();
-
-        String key = RedisUtils.getVisitorsKey(user.getUid());
-        redisService.sAdd(key, uid);
-        return RespBody.ok("已为该用户设置访问权限");
+        UserAddress hasAuth = userAddressService.get(user.getId(), addrId);
+        if (ObjectUtils.isEmpty(hasAuth)) {
+            return RespBody.argsError("您没有操作权限");
+        }
+        UserAddress userAddress = new UserAddress(null, visitorId, addrId, "1");
+        userAddressService.updateOrInsert(userAddress);
+        return RespBody.ok("添加成功");
     }
 }

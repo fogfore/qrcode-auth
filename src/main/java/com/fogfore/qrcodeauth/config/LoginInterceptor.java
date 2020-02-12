@@ -16,6 +16,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class LoginInterceptor extends HandlerInterceptorAdapter {
@@ -40,6 +41,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                     return false;
                 }
                 userThreadLocal.set(JSON.parseObject(value, User.class));
+                redisService.expire(RedisUtils.getSessionKey(skey), 1, TimeUnit.HOURS);
             }
         }
         return true;

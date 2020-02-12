@@ -10,7 +10,7 @@ public class RedisUtils {
         return APP_PREFIX + "/user/identity/" + identity;
     }
 
-    public static String getVisitorsKey(String uid) {
-        return APP_PREFIX + "/user/visitor/" + uid;
+    public static String getVisitorKey(String str) {
+        return APP_PREFIX + "/user/visitor/" + str;
     }
 }
