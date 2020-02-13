@@ -14,6 +14,7 @@ import com.fogfore.qrcodeauth.service.UserService;
 import com.fogfore.qrcodeauth.service.WeChatService;
 import com.fogfore.qrcodeauth.utils.CommonUtils;
 import com.fogfore.qrcodeauth.utils.RedisUtils;
+import com.fogfore.qrcodeauth.vo.UserAuthVo;
 import com.fogfore.qrcodeauth.vo.UserDetailVo;
 import com.fogfore.qrcodeauth.vo.UserInfoVo;
 import org.apache.commons.lang3.ObjectUtils;
@@ -147,5 +148,30 @@ public class UserController {
         UserAddress userAddress = new UserAddress(null, visitorId, addrId, "1");
         userAddressService.updateOrInsert(userAddress);
         return RespBody.ok("添加成功");
+    }
+
+    @LoginRequire
+    @GetMapping("/list/visitors/{addrId}")
+    public RespBody listVisitors(@PathVariable("addrId") Integer addrId) {
+        List<UserAuthVo> list = userService.listVisitors(addrId);
+        return RespBody.ok(list);
+    }
+
+    @LoginRequire
+    @PostMapping("/del/visitor")
+    public RespBody delVisitor(@RequestBody JSONObject json) {
+        Integer visitorId = json.getInteger("visitorId");
+        Integer addrId = json.getInteger("addrId");
+        if (ObjectUtils.isEmpty(visitorId) || ObjectUtils.isEmpty(addrId)) {
+            return RespBody.argsError("参数错误");
+        }
+        User user = userThreadLocal.get();
+        UserAddress userAddress = userAddressService.get(user.getId(), addrId);
+        if (ObjectUtils.isEmpty(userAddress)) {
+            return RespBody.argsError("您没有操作权限");
+        }
+        UserAddress visitorAddr = new UserAddress(null, visitorId, addrId, "0");
+        userAddressService.updateOrInsert(visitorAddr);
+        return RespBody.ok("删除成功");
     }
 }

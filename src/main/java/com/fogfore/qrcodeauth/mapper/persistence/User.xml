@@ -9,4 +9,11 @@
         and (a.real_name like '%${value}%' or a.phone like '%${value}%')
         limit 0, 10
     </select>
+
+    <select id="listVisitors" resultType="UserAuthVo">
+        select b.id id, real_name, avatar_url, authority addr_auth
+        from user_address a
+        left join user b on (a.user_id = b.id and a.address_id = #{addrId})
+        where a.authority in ('1','2')
+    </select>
 </mapper>

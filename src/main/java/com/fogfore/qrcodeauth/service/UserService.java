@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fogfore.qrcodeauth.entity.*;
 import com.fogfore.qrcodeauth.mapper.UserMapper;
+import com.fogfore.qrcodeauth.vo.UserAuthVo;
 import com.fogfore.qrcodeauth.vo.UserDetailVo;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,9 @@ public class UserService extends ServiceImpl<UserMapper, User> {
 
     public List<UserDetailVo> fuzzyQuery(String value, Integer addrId) {
         return baseMapper.fuzzyQuery(value, addrId);
+    }
+
+    public List<UserAuthVo> listVisitors(Integer addrId) {
+        return baseMapper.listVisitors(addrId);
     }
 }
