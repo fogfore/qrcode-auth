@@ -13,7 +13,7 @@
     <select id="listVisitors" resultType="UserAuthVo">
         select b.id id, real_name, avatar_url, authority addr_auth
         from user_address a
-        left join user b on (a.user_id = b.id and a.address_id = #{addrId})
-        where a.authority in ('1','2')
+        left join user b on a.user_id = b.id
+        where a.authority in ('1','2') and a.address_id = #{addrId}
     </select>
 </mapper>
