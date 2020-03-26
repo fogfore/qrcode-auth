@@ -19,4 +19,8 @@ public class Address {
     private Integer id;
     @TableField("name")
     private String name;
+    @TableField("location")
+    private String location;
+    @TableField("description")
+    private String description;
 }

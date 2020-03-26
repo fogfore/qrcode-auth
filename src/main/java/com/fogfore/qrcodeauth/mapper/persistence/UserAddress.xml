@@ -3,6 +3,6 @@
 <mapper namespace="com.fogfore.qrcodeauth.mapper.UserAddressMapper">
     <select id="listAddrs" parameterType="Integer" resultType="UserAddressAuth">
         select a.name addrName, a.id addrId, b.authority userAuth from address a
-        left join user_address b on (a.id = b.address_id and b.user_id = #{userId})
+        inner join user_address b on (a.id = b.address_id and b.user_id = #{userId} and b.authority in ('1','2'))
     </select>
 </mapper>

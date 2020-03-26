@@ -24,15 +24,16 @@ public class UserAddressService extends ServiceImpl<UserAddressMapper, UserAddre
         return baseMapper.selectOne(wrapper);
     }
 
-    public boolean updateOrInsert(UserAddress userAddress) {
+    public int del(Integer userId, Integer addrId) {
         UpdateWrapper<UserAddress> wrapper = new UpdateWrapper<UserAddress>()
-                .eq("user_id", userAddress.getUserId())
-                .eq("address_id", userAddress.getAddressId())
-                .set("authority", userAddress.getAuthority());
-        boolean update = update(userAddress, wrapper);
-        if (!update) {
-            save(userAddress);
-        }
-        return true;
+                .eq("user_id", userId)
+                .eq("address_id", addrId);
+        return baseMapper.delete(wrapper);
+    }
+
+    public int del(Integer addrId) {
+        UpdateWrapper<UserAddress> wrapper = new UpdateWrapper<UserAddress>()
+                .eq("address_id", addrId);
+        return baseMapper.delete(wrapper);
     }
 }

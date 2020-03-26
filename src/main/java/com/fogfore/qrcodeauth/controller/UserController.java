@@ -65,20 +65,11 @@ public class UserController {
         }
 
         String skey = CommonUtils.getUUID();
-        String value = JSON.toJSONString(oldUser);
-        redisService.setEx(RedisUtils.getSessionKey(skey), value, 1, TimeUnit.HOURS);
+        redisService.setEx(RedisUtils.getSessionKey(skey), openid, 1, TimeUnit.HOURS);
         Map<String, Object> data = new HashMap<>();
         data.put("skey", skey);
         data.put("uid", oldUser.getId());
         return RespBody.ok(data);
-    }
-
-    @LoginRequire
-    @GetMapping("/list/addrs")
-    public RespBody listAddrs() {
-        User user = userThreadLocal.get();
-        List<UserAddressAuth> addrs = userAddressService.listAddrs(user.getId());
-        return RespBody.ok(addrs);
     }
 
     @LoginRequire
@@ -142,11 +133,11 @@ public class UserController {
         }
         User user = userThreadLocal.get();
         UserAddress hasAuth = userAddressService.get(user.getId(), addrId);
-        if (ObjectUtils.isEmpty(hasAuth)) {
+        if (ObjectUtils.isEmpty(hasAuth) || !"2".equals(hasAuth.getAuthority())) {
             return RespBody.argsError("您没有操作权限");
         }
         UserAddress userAddress = new UserAddress(null, visitorId, addrId, "1");
-        userAddressService.updateOrInsert(userAddress);
+        userAddressService.save(userAddress);
         return RespBody.ok("添加成功");
     }
 
@@ -166,12 +157,11 @@ public class UserController {
             return RespBody.argsError("参数错误");
         }
         User user = userThreadLocal.get();
-        UserAddress userAddress = userAddressService.get(user.getId(), addrId);
-        if (ObjectUtils.isEmpty(userAddress)) {
+        UserAddress hasAuth = userAddressService.get(user.getId(), addrId);
+        if (ObjectUtils.isEmpty(hasAuth) || !"2".equals(hasAuth.getAuthority())) {
             return RespBody.argsError("您没有操作权限");
         }
-        UserAddress visitorAddr = new UserAddress(null, visitorId, addrId, "0");
-        userAddressService.updateOrInsert(visitorAddr);
+        userAddressService.del(visitorId, addrId);
         return RespBody.ok("删除成功");
     }
 }

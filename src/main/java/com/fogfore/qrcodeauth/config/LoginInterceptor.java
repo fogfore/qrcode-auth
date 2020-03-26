@@ -5,6 +5,7 @@ import com.fogfore.qrcodeauth.annotation.LoginRequire;
 import com.fogfore.qrcodeauth.entity.RespBody;
 import com.fogfore.qrcodeauth.entity.User;
 import com.fogfore.qrcodeauth.service.RedisService;
+import com.fogfore.qrcodeauth.service.UserService;
 import com.fogfore.qrcodeauth.utils.RedisUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -24,6 +25,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     private RedisService redisService;
     @Autowired
     private UserThreadLocal userThreadLocal;
+    @Autowired
+    private UserService userService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -35,12 +38,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             LoginRequire methodAnnotation = method.getAnnotation(LoginRequire.class);
             if (ObjectUtils.isNotEmpty(classAnnotation) || ObjectUtils.isNotEmpty(methodAnnotation)) {
                 String skey = request.getHeader("skey");
-                String value = redisService.get(RedisUtils.getSessionKey(skey));
-                if (StringUtils.isEmpty(value)) {
+                String openid = redisService.get(RedisUtils.getSessionKey(skey));
+                if (StringUtils.isEmpty(openid)) {
                     RespBody.accessDeniedError("请登录").doResp(response);
                     return false;
                 }
-                userThreadLocal.set(JSON.parseObject(value, User.class));
+                User user = userService.selectByOpenid(openid);
+                userThreadLocal.set(user);
                 redisService.expire(RedisUtils.getSessionKey(skey), 1, TimeUnit.HOURS);
             }
         }
