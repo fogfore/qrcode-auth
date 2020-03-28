@@ -27,9 +27,9 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         return baseMapper.selectOne(wrapper);
     }
 
-    public boolean update(User user) {
+    public boolean updateRealInfo(User user) {
         UpdateWrapper<User> wrapper = new UpdateWrapper<User>()
-                .eq("id", user.getId())
+                .eq("openid", user.getOpenid())
                 .set(ObjectUtils.isNotEmpty(user.getRealName()), "real_name", user.getRealName())
                 .set(ObjectUtils.isNotEmpty(user.getRealName()), "phone", user.getPhone());
         return update(user, wrapper);
@@ -41,5 +41,24 @@ public class UserService extends ServiceImpl<UserMapper, User> {
 
     public List<UserAuthVo> listVisitors(Integer addrId) {
         return baseMapper.listVisitors(addrId);
+    }
+
+    public void insertOrUpdate(User user) {
+        User oldUser = selectByOpenid(user.getOpenid());
+        if (ObjectUtils.isEmpty(oldUser)) {
+            baseMapper.insert(user);
+        } else {
+            UpdateWrapper<User> wrapper = new UpdateWrapper<User>()
+                    .eq("openid", user.getOpenid())
+                    .set("nick_name", user.getNickName())
+                    .set("session_key", user.getSessionKey())
+                    .set("city", user.getCity())
+                    .set("province", user.getProvince())
+                    .set("country", user.getCountry())
+                    .set("avatar_url", user.getAvatarUrl())
+                    .set("gender", user.getGender());
+            baseMapper.update(user, wrapper);
+            user.setId(oldUser.getId());
+        }
     }
 }

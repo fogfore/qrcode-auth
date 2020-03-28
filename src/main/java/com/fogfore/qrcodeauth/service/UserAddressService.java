@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fogfore.qrcodeauth.entity.UserAddress;
 import com.fogfore.qrcodeauth.entity.UserAddressAuth;
 import com.fogfore.qrcodeauth.mapper.UserAddressMapper;
+import com.fogfore.qrcodeauth.utils.AuthUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -35,5 +37,13 @@ public class UserAddressService extends ServiceImpl<UserAddressMapper, UserAddre
         UpdateWrapper<UserAddress> wrapper = new UpdateWrapper<UserAddress>()
                 .eq("address_id", addrId);
         return baseMapper.delete(wrapper);
+    }
+
+    public boolean isAdmin(Integer userId, Integer addrId) {
+        UserAddress userAddr = get(userId, addrId);
+        if (ObjectUtils.isEmpty(userAddr)) {
+            return false;
+        }
+        return AuthUtils.isAdmin(userAddr.getAuthority());
     }
 }

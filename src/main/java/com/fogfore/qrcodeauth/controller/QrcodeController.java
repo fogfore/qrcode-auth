@@ -48,7 +48,7 @@ public class QrcodeController {
         }
 
         String authCode = CommonUtils.getUUID();
-        redisService.setEx(RedisUtils.getVisitorKey(authCode), String.valueOf(addrId), 1, TimeUnit.HOURS);
+        redisService.setEx(RedisUtils.getVisitorKey(authCode), String.valueOf(user.getOpenid()), 1, TimeUnit.HOURS);
 
         BufferedImage image = QrcodeUtils.generateQrcode(authCode);
         RespBody.doImageResp(resp, image);
